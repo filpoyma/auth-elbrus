@@ -47,10 +47,11 @@ app.use(
     secret: process.env.COOKIE_SECRET, // ключ для шифрования cookies // require('crypto').randomBytes(10).toString('hex')
     resave: false, // Если true,  пересохраняет сессию, даже если она не поменялась
     saveUninitialized: false, // Если false, куки появляются только при установке req.session
+    httpOnly: true
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       maxAge: 1000 * 60 * 60 * 24 * 10, // время жизни cookies, ms (10 дней)
-      httpOnly: true
+      
     },
   })
 );
