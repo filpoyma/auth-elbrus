@@ -1,6 +1,6 @@
 {
   "development": {
-    "use_env_variable": "DB_URL_DEV",
+    "use_env_variable": "DATABASE_URL_DEV",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
@@ -10,7 +10,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "DB_URL_PROD",
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {

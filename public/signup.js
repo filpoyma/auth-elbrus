@@ -7,6 +7,7 @@ signupForm?.addEventListener('submit', async (event) => {
     response = await fetch(action, {
       method,
       credentials: 'include',
+      mode: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
       },

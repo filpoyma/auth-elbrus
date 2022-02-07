@@ -10,8 +10,8 @@ let RedisStore = require('connect-redis')(session);
 
 const redisUrl =
   process.env.NODE_ENV === 'production'
-    ? process.env.DB_URL_REDIS_PROD
-    : process.env.DB_URL_REDIS_DEV;
+    ? process.env.REDISTOGO_URL
+    : process.env.REDISTOGO_URL_DEV;
     
 let redisClient = redis.createClient({
   url: redisUrl,
