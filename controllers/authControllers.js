@@ -22,11 +22,16 @@ exports.createUserAndSession = async (req, res, next) => {
 console.log('user %s created', user.name);
     // записываем в req.session.user данные (id & name) (создаем сессию)
   req.session.user = serializeUser(user); // req.session.user -> id, name
+  res.cookie("sid", JSON.stringify(serializeUser(user)), {
+    secure: process.env.NODE_ENV !== "development",
+    httpOnly: true,
+  });
   } catch (err) {
     console.error('Err message:', err.message);
     console.error('Err code', err.code);
     return failAuth(res, err.message);
   }
+
   res.status(200).end(); // ответ 200 + отправка cookies в заголовке клиенту
 };
 
