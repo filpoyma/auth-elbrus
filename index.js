@@ -5,6 +5,7 @@ const session = require('express-session'); // библиотека для ра�
 const path = require('path');
 const morgan = require('morgan');
 const dbConnect = require('./db/dbconnect');
+const cors = require('cors');
 
 let RedisStore = require('connect-redis')(session);
 
@@ -31,10 +32,12 @@ const app = express();
 
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'hbs');
+app.set('trust proxy', true)
 
 app.use(express.static('public')); // middlewares
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
 
 dbConnect();
 
