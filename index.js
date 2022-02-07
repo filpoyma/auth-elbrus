@@ -50,6 +50,7 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       maxAge: 1000 * 60 * 60 * 24 * 10, // время жизни cookies, ms (10 дней)
+      httpOnly: true
     },
   })
 );
