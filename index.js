@@ -45,10 +45,10 @@ app.use(
     name: 'sid', // название куки
     store: new RedisStore({ client: redisClient }),
     secret: process.env.COOKIE_SECRET, // ключ для шифрования cookies // require('crypto').randomBytes(10).toString('hex')
-    resave: false, // Если true,  пересохраняет сессию, даже если она не поменялась
+    resave: true, // Если true,  пересохраняет сессию, даже если она не поменялась
     saveUninitialized: false, // Если false, куки появляются только при установке req.sessio
     cookie: {
-      secure: false,
+      secure: true,
       maxAge: 1000 * 60 * 60 * 24 * 10, // время жизни cookies, ms (10 дней)      
     },
   })
