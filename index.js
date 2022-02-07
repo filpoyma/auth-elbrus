@@ -32,7 +32,7 @@ const app = express();
 
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'hbs');
-// app.set('trust proxy', true)
+app.set('trust proxy', true);
 
 app.use(express.static('public')); // middlewares
 app.use(express.json());
