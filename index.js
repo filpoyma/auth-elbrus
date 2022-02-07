@@ -32,7 +32,7 @@ const app = express();
 
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'hbs');
-app.set('trust proxy', true)
+// app.set('trust proxy', true)
 
 app.use(express.static('public')); // middlewares
 app.use(express.json());
@@ -51,7 +51,7 @@ app.use(
     resave: true, // Если true,  пересохраняет сессию, даже если она не поменялась
     saveUninitialized: false, // Если false, куки появляются только при установке req.sessio
     cookie: {
-      secure: true,
+      secure: process.env.NODE_ENV === 'production',
       maxAge: 1000 * 60 * 60 * 24 * 10, // время жизни cookies, ms (10 дней)      
     },
   })
