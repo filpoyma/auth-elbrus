@@ -21,8 +21,8 @@ exports.createUserAndSession = async (req, res, next) => {
     });
 console.log('user %s created', user.name);
     // записываем в req.session.user данные (id & name) (создаем сессию)
-  req.session.user = JSON.stringify(serializeUser(user)); // req.session.user -> id, name
-  res.cookie("sid", JSON.stringify(serializeUser(user)));
+  req.session.user = (serializeUser(user); // req.session.user -> id, name
+//   res.cookie("sid", JSON.stringify(serializeUser(user)));
   } catch (err) {
     console.error('Err message:', err.message);
     console.error('Err code', err.code);
